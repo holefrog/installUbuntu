@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=tinyMediaManager
+GenericName=Media Library Manager
+Comment=Manage and organize your media library
+Exec=@@INSTALL_DIR@@/tmm.sh
+Icon=@@INSTALL_DIR@@/tmm.png
+Type=Application
+Categories=AudioVideo;Video;Database;Java;
+Terminal=false
+StartupNotify=true
+StartupWMClass=TinyMediaManager
+Keywords=media;movies;tv;shows;management;

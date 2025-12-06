@@ -1,0 +1,9 @@
+evdev:input:b0005v045Ep0041e0300*
+ KEYBOARD_KEY_c0041=enter
+
+evdev:atkbd:dmi:bvn*:bvr*:bd*:svnG7BTS:pn*:pvr*
+ KEYBOARD_KEY_c0041=up
+
+evdev:name:G7BTS Consumer Control:dmi:bvn*:bvr*:bd*:svnG7BTS:pnG7BTS*:pvr*
+ KEYBOARD_KEY_c0041=down
+

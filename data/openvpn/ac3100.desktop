@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=OpenVPN-AC3100
+GenericName=OpenVPN
+Comment=openVPN of AC3100
+Exec=sudo openvpn /home/david/programs/openvpn/AC3100.ovpn
+Icon=/home/david/programs/openvpn/openvpn.jpg
+Type=Application
+Terminal=true
+Categories=Network;
+X-Desktop-File-Install-Version=0.24

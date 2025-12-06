@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=NextCloud
+GenericName=Cloud Storage Client
+Comment=NextCloud Desktop Sync Client
+Exec=@@INSTALL_DIR@@/@@EXEC_FILE@@
+Icon=@@INSTALL_DIR@@/nextcloud.png
+Type=Application
+Categories=Network;FileTransfer;
+StartupNotify=true
+X-GNOME-Autostart-enabled=true
+Keywords=cloud;sync;drive;storage;file;

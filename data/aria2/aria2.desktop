@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Aria2
+GenericName=Aria2
+Comment=Downloading tool.
+Exec=aria2c --conf-path=/home/david/programs/aria2/aria2.conf
+Icon=/home/david/programs/aria2/aria2.jpg
+Type=Application
+Categories=Network;

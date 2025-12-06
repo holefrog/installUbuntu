@@ -1,0 +1,171 @@
+# ======================================================================================================
+# Aria2 配置文件模板
+# 
+# 此文件由模板生成，请勿直接修改
+# 真实配置文件: ~/.config/aria2/aria2.conf
+# 
+# 变量来源: config/secrets.env
+# ======================================================================================================
+
+# ========================= RPC 配置 =========================
+# 允许 RPC
+enable-rpc=true
+
+# RPC 端口
+rpc-listen-port=6800
+
+# 允许外部访问（false = 仅本地）
+rpc-listen-all=false
+
+# 允许所有来源（Web 界面需要）
+rpc-allow-origin-all=true
+
+# WebDAV 认证
+http-user=@@ARIA2_WEBDAV_USER@@
+http-passwd=@@ARIA2_WEBDAV_PASSWORD@@
+
+# RPC 访问密钥（推荐使用 token 方式）
+# 客户端设置: http://token:YOUR_SECRET@localhost:6800/jsonrpc
+rpc-secret=@@ARIA2_RPC_SECRET@@
+
+# HTTPS 加密（可选）
+# rpc-secure=true
+# rpc-certificate=/path/to/certificate.crt
+# rpc-private-key=/path/to/private.key
+
+# ========================= 日志配置 =========================
+log-level=error
+log=@@ARIA2_CONFIG_DIR@@/aria2.log
+
+# ========================= 会话管理 =========================
+# 从会话文件读取下载任务
+input-file=@@ARIA2_CONFIG_DIR@@/aria2.session
+
+# 退出时保存会话
+save-session=@@ARIA2_CONFIG_DIR@@/aria2.session
+
+# 定时保存会话（0 = 仅退出时保存）
+save-session-interval=30
+
+# ========================= 基础设置 =========================
+# 文件保存路径
+dir=@@ARIA2_DOWNLOAD_DIR@@
+
+# 断点续传
+continue=true
+
+# 文件预分配（提高性能，减少碎片）
+# none < falloc < trunc < prealloc
+file-allocation=prealloc
+
+# 最大同时下载数
+max-concurrent-downloads=10
+
+# 同服务器连接数
+max-connection-per-server=10
+
+# 总下载速度限制（0 = 无限制）
+max-overall-download-limit=0
+
+# 单文件下载速度限制
+max-download-limit=0
+
+# 总上传速度限制
+max-overall-upload-limit=0
+
+# 单文件上传速度限制
+max-upload-limit=0
+
+# 最小文件分片大小
+min-split-size=1M
+
+# 单文件最大线程数
+split=16
+
+# 断开速度过慢的连接
+# lowest-speed-limit=0
+
+# ========================= 缓存设置 =========================
+# 文件缓存（0 = 使用系统缓存）
+# disk-cache=0
+
+# Linux 文件缓存方式
+# enable-mmap=true
+
+# ========================= 其他选项 =========================
+# 不验证 SSL 证书
+check-certificate=false
+
+# 检查文件完整性
+check-integrity=true
+
+# Referer（验证用）
+# referer=*
+
+# 后台运行
+daemon=true
+
+# 禁用 IPv6
+disable-ipv6=true
+
+# 强制保存会话
+force-save=true
+
+# ========================= BT/Metalink 配置 =========================
+# DHT 监听端口
+dht-listen-port=6801
+
+# BT 监听端口
+listen-port=6801
+
+# DHT 路由表
+dht-file-path=@@ARIA2_CONFIG_DIR@@/dht.dat
+
+# DHT IPv6（可选）
+# enable-dht6=true
+# dht-file-path6=@@ARIA2_CONFIG_DIR@@/dht6.dat
+
+# 做种比率（0 = 下载完不做种）
+seed-ratio=0
+
+# 启用本地节点查找
+bt-enable-lpd=true
+
+# BT 最大打开文件数
+bt-max-open-files=16
+
+# BT 最大连接数
+bt-max-peers=8
+
+# 全局上传限制（做种用）
+max-overall-upload-limit=2M
+
+# ========================= BT Tracker 列表 =========================
+# 公共 Tracker 服务器（定期更新）
+bt-tracker=udp://tracker.opentrackr.org:1337/announce,udp://tracker.internetwarriors.net:1337/announce,udp://p4p.arenabg.ch:1337/announce,http://p4p.arenabg.com:1337/announce,udp://tracker.openbittorrent.com:6969/announce,udp://www.torrent.eu.org:451/announce,udp://tracker.torrent.eu.org:451/announce,udp://tracker.tiny-vps.com:6969/announce,udp://retracker.lanta-net.ru:2710/announce,udp://open.stealth.si:80/announce,udp://exodus.desync.com:6969/announce
+
+# ======================================================================================================
+# 配置说明
+# ======================================================================================================
+# 
+# 1. RPC 访问
+#    - 本地访问: http://localhost:6800/jsonrpc
+#    - Token 认证: http://token:YOUR_SECRET@localhost:6800/jsonrpc
+# 
+# 2. Web 前端
+#    - AriaNg: https://ariang.mayswind.net/latest/
+#    - Webui-aria2: https://ziahamza.github.io/webui-aria2/
+# 
+# 3. 命令行
+#    - 启动: aria2c --conf-path=~/.config/aria2/aria2.conf
+#    - 后台: aria2c --conf-path=~/.config/aria2/aria2.conf -D
+# 
+# 4. 性能优化
+#    - SSD 推荐: file-allocation=falloc
+#    - HDD 推荐: file-allocation=trunc
+#    - 多线程: split=16, max-connection-per-server=10
+# 
+# 5. Tracker 更新
+#    定期更新 bt-tracker 列表: https://github.com/ngosang/trackerslist
+# 
+# ======================================================================================================

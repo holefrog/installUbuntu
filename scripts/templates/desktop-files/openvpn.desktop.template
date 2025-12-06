@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=OpenVPN-AC3100
+GenericName=OpenVPN Connection
+Comment=OpenVPN connection for AC3100
+Exec=sudo openvpn @@CONFIG_DIR@@/AC3100.ovpn
+Icon=@@CONFIG_DIR@@/openvpn.jpg
+Type=Application
+Terminal=true
+Categories=Network;
+Keywords=vpn;network;tunnel;internet;

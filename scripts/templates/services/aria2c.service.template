@@ -1,0 +1,12 @@
+[Unit]
+Description=Aria2 Download Manager
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=@@ARIA2_BIN@@ --conf-path=@@ARIA2_CONF_FILE@@
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

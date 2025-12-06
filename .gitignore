@@ -1,0 +1,271 @@
+# .gitignore - Ubuntu 24.04 安装项目
+# ======================================================================================================
+# 安全原则: 默认排除所有敏感信息，只提交模板文件
+# ======================================================================================================
+
+# ============================================
+# 🔒 敏感配置文件（本地保留，不提交）
+# ============================================
+
+# 环境变量（包含密码、密钥）
+config/secrets.env
+.env
+.env.local
+.env.production
+
+# 真实配置文件（保留 .template）
+data/aria2/aria2.conf
+data/openvpn/*.ovpn
+!data/openvpn/*.ovpn.template
+autoinstall/autoinstall.yaml
+
+
+# 个性化配置
+config/settings.ini.local
+scripts/config.ini.local
+
+# ============================================
+# 🔑 密钥和证书
+# ============================================
+
+# SSH 密钥
+rpi_keys/*
+data/ssh/*
+*.pem
+*.key
+*.crt
+*.csr
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+
+# GPG 密钥
+*.gpg
+*.asc
+
+# ============================================
+# 💾 备份文件
+# ============================================
+
+# 自动备份
+local_backup/
+*_backup/
+backup_*/
+*.bak
+*.backup
+*.old
+
+# 数据库备份
+*.sql
+*.db
+*.sqlite
+
+# ============================================
+# 📝 日志文件
+# ============================================
+
+# 应用日志
+*.log
+logs/
+log/
+
+# 系统日志
+syslog
+*.journal
+
+# ============================================
+# 🗑️ 临时文件
+# ============================================
+
+# 通用临时文件
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.*.swp
+.*.swo
+
+# 缓存目录
+.cache/
+cache/
+__pycache__/
+*.pyc
+
+# Vim 临时文件
+.vim/
+*.un~
+Session.vim
+
+# ============================================
+# 🖥️ 操作系统文件
+# ============================================
+
+# Linux
+.directory
+.Trash-*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ============================================
+# 📦 包管理器
+# ============================================
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Python
+venv/
+env/
+.venv/
+pip-log.txt
+
+# ============================================
+# 🛠️ IDE 和编辑器
+# ============================================
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# JetBrains
+.idea/
+*.iml
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Atom
+.atom/
+
+# ============================================
+# 🎯 项目特定排除
+# ============================================
+
+# 用户数据（不同步到 Git）
+data/rime-data/build/
+data/rime-data/*.userdb/
+data/aria2/aria2.session
+data/aria2/dht.dat
+data/aria2/dht6.dat
+
+# 下载的安装包
+downloads/
+*.deb
+*.tar.gz
+*.tar.xz
+*.tar.bz2
+*.zip
+*.AppImage
+*.iso
+
+# 生成的桌面文件（运行时创建）
+*.desktop.generated
+
+# ============================================
+# 📊 测试和覆盖率
+# ============================================
+
+# 测试输出
+test-results/
+coverage/
+.coverage
+htmlcov/
+
+# ============================================
+# 🚀 部署文件
+# ============================================
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Kubernetes
+*.kubeconfig
+
+# ============================================
+# 💡 开发调试
+# ============================================
+
+# 调试文件
+debug.log
+trace.log
+*.stackdump
+
+# 性能分析
+*.prof
+*.pstats
+
+# ============================================
+# 📋 文档生成
+# ============================================
+
+# Sphinx
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# ============================================
+# 🔍 搜索索引
+# ============================================
+
+# Ctags
+tags
+TAGS
+
+# Cscope
+cscope.*
+
+# ============================================
+# ⚙️ 配置覆盖（开发环境）
+# ============================================
+
+# 本地开发配置
+*.local
+*.dev
+*.development
+
+# ============================================
+# 📌 特殊说明
+# ============================================
+
+# 允许提交的模板文件示例:
+# !config/secrets.env.example
+# !data/aria2/aria2.conf.template
+# !data/openvpn/AC3100.ovpn.template
+
+# 允许空目录占位文件
+!.gitkeep
+!.keep
+
+# ============================================
+# 🔐 安全检查提醒
+# ============================================
+
+# 在提交前，请确保:
+# 1. 所有敏感文件已被排除
+# 2. Git 历史中无敏感信息
+# 3. 模板文件不包含真实密码
+# 4. secrets.env.example 只包含占位符
+#
+# 检查命令:
+# git log --all --full-history -- config/secrets.env
+# git grep -i password
+# git grep -i secret
